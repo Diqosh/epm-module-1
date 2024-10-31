@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app
+          image: crhm8devwestus002.azurecr.io/myapp:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: secrets-store01-inline
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
+          env:
+            - name: REDIS_URL
+              value: "/mnt/secrets-store/redis-url"
+            - name: REDIS_PASSWORD
+              value: "/mnt/secrets-store/redis-password"
+            - name: CREATOR
+              value: "K8S"
+      imagePullSecrets:
+        - name: myregistrykey
+      volumes:
+        - name: secrets-store01-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "azure-kvname-user-msi"

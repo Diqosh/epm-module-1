@@ -1,0 +1,24 @@
+# # This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
+# kind: Pod
+# apiVersion: v1
+# metadata:
+#   name: my-app-pod
+# spec:
+#   containers:
+#     - name: my-app
+#       image: crhm8devwestus002.azurecr.io/myapp:latest
+#       ports:
+#         - containerPort: 80
+#       volumeMounts:
+#         - name: secrets-store01-inline
+#           mountPath: "/mnt/secrets-store"
+#           readOnly: true
+#   imagePullSecrets:
+#     - name: myregistrykey
+#   volumes:
+#     - name: secrets-store01-inline
+#       csi:
+#         driver: secrets-store.csi.k8s.io
+#         readOnly: true
+#         volumeAttributes:
+#           secretProviderClass: "azure-kvname-user-msi"

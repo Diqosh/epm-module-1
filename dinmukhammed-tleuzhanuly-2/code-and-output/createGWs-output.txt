@@ -1,0 +1,8 @@
+Created resource group: rg-hm2-westeurope-11
+Created virtual network: vnet-hm2-westeurope-11
+Created public IP address: pip-hm2-westeurope-11
+Created virtual network gateway 'gw-hm2-westeurope-11'
+Created resource group: rg-hm2-westeurope-12
+Created virtual network: vnet-hm2-westeurope-12
+Created public IP address: pip-hm2-westeurope-12
+Created virtual network gateway 'gw-hm2-westeurope-12'

@@ -1,0 +1,4 @@
+ResourceGroupName    Name            Location   ConnectionType RoutingWeight DpdTimeoutSeconds ConnectionMode EnableBgp UseLocalAzureIpAddress ConnectionStatus EgressBytesTransferred IgnressBytesTransferred
+-----------------    ----            --------   -------------- ------------- ----------------- -------------- --------- ---------------------- ---------------- ---------------------- -----------------------
+rg-hm2-westeurope-08 VNet2VNet-08 westeurope Vnet2Vnet      0             0                 Default        False     False                  Connected        0                      0
+rg-hm2-westeurope-09 VNet2VNet-09 westeurope Vnet2Vnet      0             0                 Default        False     False                  Connected        0                      0
